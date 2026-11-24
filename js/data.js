@@ -6,7 +6,7 @@ const product = {
   discountPercent: 10,
   description: "Холодный кофе с нежным кремом и нотками какао.",
   image: "img/tiramisu_cold_brew.png",
-  isAvailable: true,
+  isAvailable: false,
 };
 
 const products = [product]; // const - нельзя присваивать переменной другой массив, но можно менять этот
@@ -107,8 +107,47 @@ products.push(
   },
 );
 
-console.log(products);
-console.log(products.length);
+for (const drink of products) {
+  console.log(drink.title);
+}
+
+// Фильтр по категории
+function filterProductsByCategory(category) {
+  return products.filter((drink) => {
+    return drink.category === category;
+  });
+}
+const coffeeProducts = filterProductsByCategory("coffee");
+console.log("Кофейные напитки:", coffeeProducts);
+const hotProducts = filterProductsByCategory("hot");
+console.log("Горячие напитки: ", hotProducts);
+
+// Поиск товара по id
+function findProductById(id) {
+  return products.find((drink) => {
+    return drink.id === id;
+  });
+}
+const foundProduct = findProductById(7);
+console.log("Найденный напиток:", foundProduct);
+
+// Создаем массив, где оставляем только названия напитков
+const productTitles = products.map((drink) => {
+  return drink.title;
+});
+console.log("Названия напитков:", productTitles);
+
+// Сортировка напитков ([...products] - создание нового массива копированием старого в него)
+const sortedProducts = [...products].sort((a, b) => {
+  return a.price - b.price; // По возраст цены
+});
+console.log("По возрастанию цены:", sortedProducts);
+
+// reduce - последовательно складываем цены и накапливаем результат
+const totalPrice = products.reduce((sum, drink) => {
+  return sum + drink.price;
+}, 0);
+console.log("Общая стоимость:", formatPrice(totalPrice));
 
 // Рассчитываем скидку
 function calculateDiscount(price, percent) {
