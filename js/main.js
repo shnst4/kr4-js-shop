@@ -49,21 +49,11 @@ function createProductCard(drink) {
   productAvailability.textContent = getAvailability(drink); // Функция, есть ли в начилии, из main.js
 
   // Создаем кнопку перехода в корзину
-  const productButton = document.createElement("button");
-  productButton.type = "button";
+
+  const productButton = document.createElement("a");
+  productButton.href = "product.html?id=" + drink.id;
   productButton.className = "product-button";
-  productButton.textContent = "В корзину";
-
-  if (drink.isAvailable === false) {
-    productButton.disabled = true; // Кнопка недоступна для нажатия
-    productButton.textContent = "Недоступно";
-  }
-
-  // Обработчик события (по клику)
-  productButton.addEventListener("click", () => {
-    addToCart(drink.id); // Переходим к cart.js
-    productButton.textContent = "Товар добавлен в корзину:)";
-  });
+  productButton.textContent = "Подробнее";
 
   productCard.append(
     productImage,

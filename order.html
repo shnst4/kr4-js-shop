@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оформление заказа — Drink drank drunk</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/order.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">Напиточная</a>
+
+      <nav aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Корзина</a>
+        <a href="order.html" aria-current="page">Оформить заказ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="order-page">
+        <h1>Оформление заказа</h1>
+        <p>Заполни данные для получения напитков.</p>
+
+        <form id="order-form">
+          <label for="customer-name">Имя</label>
+          <!--Атрибут name нужен для получения введенных данных в JS-->
+          <input type="text" id="customer-name" name="name" required />
+
+          <label for="customer-phone">Телефон</label>
+          <input type="tel" id="customer-phone" name="phone" required />
+
+          <label for="customer-address">Адрес доставки</label>
+          <textarea id="customer-address" name="address" required></textarea>
+
+          <button type="submit">Подтвердить заказ</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
