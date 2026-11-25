@@ -108,7 +108,9 @@ if (cartItems && cartTotal) {
           cartTotal.textContent = formatPrice(total);
 
           if (cartIds.length === 0) {
-            cartItems.textContent = "Корзина пока пуста.";
+            cartItems.textContent =
+              "Корзина пуста. СРОЧНО ЗАКАЖИ ЧТО-НИБУДЬ! БОЛЬШЕ ТРАТИШЬ - БОЛЬШЕ ПОЛУЧАЕШЬ:)";
+            clearCartButton.disabled = true;
           }
         });
 
