@@ -7,6 +7,7 @@ orderForm.addEventListener("submit", (event) => {
 
   const name = document.querySelector("#customer-name").value.trim();
   const phone = document.querySelector("#customer-phone").value.trim();
+  const email = document.querySelector("#customer-email").value.trim();
   const address = document.querySelector("#customer-address").value.trim();
 
   // Все символы кроме цифр убираем (меняем на "")
@@ -18,6 +19,14 @@ orderForm.addEventListener("submit", (event) => {
   }
   if (phoneDigits.length < 10 || phoneDigits.length > 15) {
     orderMessage.textContent = "Введите корректный номер телефона.";
+    return;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // ^[^\s@]+ пояснение: ^ начало строки, + возможность повтора предыдущего элемента, [^\s@] один не пробельный символ и не @
+
+  if (!emailPattern.test(email)) {
+    orderMessage.textContent = "Введите корректный email.";
     return;
   }
   if (address.length < 5) {
