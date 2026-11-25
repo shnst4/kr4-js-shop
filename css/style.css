@@ -627,3 +627,48 @@ h2 {
 .footer-links a:hover {
   text-decoration: underline;
 }
+
+.dark-theme {
+  --bg: #17100e;
+  --dark: #f4e7d4;
+  --accent: #d18a65;
+  --text: #f0e2d3;
+  --light: #30201b;
+}
+
+.dark-theme .site-header,
+.dark-theme .site-footer,
+.dark-theme .hero {
+  background: #24150f;
+  color: var(--text);
+}
+
+.dark-theme .site-header a,
+.dark-theme .site-footer a {
+  color: var(--text);
+}
+
+.dark-theme #order-form input,
+.dark-theme #order-form textarea {
+  background: #24150f;
+  color: var(--text);
+}
+
+.site-header nav {
+  align-items: center;
+}
+/*Переключатель тем*/
+.theme-toggle {
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--light);
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
